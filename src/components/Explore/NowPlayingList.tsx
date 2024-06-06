@@ -28,7 +28,7 @@ const NowPlayingList = () => {
       setNowPlayingList(hindiMovies);
     } else setNowPlayingList([]);
   }, [data]);
-  console.log("nowPlayingListnowPlayingList", nowPlayingList);
+
   return (
     <div>
       {nowPlayingList && <NowPlayingCarousel nowPlayingList={nowPlayingList} />}

@@ -8,13 +8,17 @@ import {
   faArrowCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const CarouselCard = ({ movie }: { movie: IMovie }) => {
   const imgURL = movie?.poster_path
     ? `${imgPrefixURLPath}${movie.poster_path}`
     : "";
   return (
-    <button className="w-[300px] h-full rounded-xl overflow-hidden flex-shrink-0">
+    <Link
+      className="w-[300px] h-full rounded-xl overflow-hidden flex-shrink-0"
+      to={`/movies/${movie?.id}`}
+    >
       <img
         src={imgURL}
         alt={movie?.title || "No title"}
@@ -30,7 +34,7 @@ const CarouselCard = ({ movie }: { movie: IMovie }) => {
           {movie?.vote_count}
         </div>
       </div>
-    </button>
+    </Link>
   );
 };
 
@@ -52,7 +56,6 @@ const Carousel = ({ moviesList }: { moviesList: IMovie[] }) => {
       <div className="text-2xl my-2 font-medium text-gray-700">
         Trending Movies
       </div>
-
       <div className="flex  justify-center overflow-hidden">
         <div className=" relative">
           <div className="flex gap-x-6 transition-transform duration-500 ease-in-out transform ">

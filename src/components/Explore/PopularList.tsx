@@ -17,7 +17,7 @@ const PopularList = () => {
   useEffect(() => {
     getPopularMovies();
   }, []);
-  console.log("popularMoviesList", popularMoviesList);
+
   return (
     <div>
       {popularMoviesList && <Carousel moviesList={popularMoviesList} />}

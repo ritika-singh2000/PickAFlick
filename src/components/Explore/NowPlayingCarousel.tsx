@@ -7,6 +7,7 @@ import {
   faAnglesRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const NowPlayingCard = ({
   movie,
@@ -21,8 +22,10 @@ const NowPlayingCard = ({
   incrementCarousel: () => void;
   decrementCarousel: () => void;
 }) => {
+  // to={`/movies/${movie.id}`}
+  console.log("ritika", movie?.id);
   return (
-    <div className="my-3 mx-8 relative">
+    <Link className="my-3 mx-8 relative flex" to={`/movies/${movie?.id}`}>
       <img
         src={imgPrefixURLPath + movie?.backdrop_path || ""}
         alt={movie?.title || "No title"}
@@ -68,7 +71,7 @@ const NowPlayingCard = ({
           ></div>
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
 
